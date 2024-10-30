@@ -9,9 +9,9 @@ async function readFile(filename) {
 
 async function generateData() {
     try {
-        const brands = await readFile('brand.txt');
-        const colors = await readFile('color.txt');
-        const maxSpeeds = await readFile('maxSpeed.txt');
+        const brands = await readFile('./src/lab01/brand.txt');
+        const colors = await readFile('./src/lab01/color.txt');
+        const maxSpeeds = await readFile('./src/lab01/maxSpeed.txt');
 
         let carsData = [];
 
@@ -26,7 +26,7 @@ async function generateData() {
 
         const content = `export const data = ${JSON.stringify(carsData, null, 2)};`;
 
-        await fs.writeFile('./module-data.js', content);
+        await fs.writeFile('./src/data/module-data.js', content);
         console.log("module-data.js generated");
     } catch (error) {
         console.error("Error generating data:", error);
