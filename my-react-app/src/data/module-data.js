@@ -1,32 +1,32 @@
 export const data = [
   {
     "id": 1,
-    "brand": "bwm",
+    "brand": "audi",
     "color": "green",
-    "maxSpeed": "240"
+    "maxSpeed": "250"
   },
   {
     "id": 2,
-    "brand": "honda",
+    "brand": "audi",
     "color": "green",
-    "maxSpeed": "250"
+    "maxSpeed": "220"
   },
   {
     "id": 3,
     "brand": "audi",
-    "color": "black",
-    "maxSpeed": "250"
+    "color": "red",
+    "maxSpeed": "240"
   },
   {
     "id": 4,
-    "brand": "opel",
-    "color": "black",
-    "maxSpeed": "250"
+    "brand": "bwm",
+    "color": "red",
+    "maxSpeed": "230"
   },
   {
     "id": 5,
     "brand": "audi",
-    "color": "green",
-    "maxSpeed": "240"
+    "color": "red",
+    "maxSpeed": "220"
   }
 ];
