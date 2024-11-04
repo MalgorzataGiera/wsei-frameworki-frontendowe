@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 
-const count = Number(process.argv[2])
+const count = Number(process.argv[2]) || 5
 
 async function readFile(filename) {
     const data = await fs.readFile(filename, 'utf8');
@@ -21,6 +21,7 @@ async function generateData() {
                 brand: brands[Math.floor(Math.random() * brands.length)],
                 color: colors[Math.floor(Math.random() * colors.length)],
                 maxSpeed: maxSpeeds[Math.floor(Math.random() * maxSpeeds.length)],
+                rating: Math.floor(Math.random() * 11)
             });
         }
 
