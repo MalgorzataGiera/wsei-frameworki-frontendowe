@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 import RatingBar from './RatingBar';
-//import { useReducer } from 'react';
+import AppContext from '../data/AppContext'
 
-const CarProfile = ({ id, brand, color, maxSpeed, rating, dispatch}) => {
+const CarProfile = ({ id, brand, color, maxSpeed, rating}) => {
   const [currentRating, setCurrentRating] = useState(rating);
   const [firstClick, setFirstClick] = useState(true);
+
+  const { dispatch } = useContext(AppContext);
 
   const handleEdit = () => {
     if (onEdit) onEdit(id);

@@ -1,3 +1,4 @@
+import React, { useReducer } from 'react';
 //import { useState } from 'react'
 import './App.css'
 //import CarProfile from './components/CarProfile.jsx'
@@ -6,10 +7,20 @@ import RootLayout from './layouts/RootLayout.jsx';
 import Lab1 from './components/Lab1.jsx';
 import Lab2 from './components/Lab2.jsx';
 import Lab3 from './components/Lab3.jsx';
+import Lab4 from './components/Lab4.jsx';
 import Home from './components/Home.jsx';
 import { Routes, Route } from 'react-router-dom';
+import AppContext from './data/AppContext.js';
+import AppReducer from "./data/AppReducer";
+import CarProfile from './components/CarProfile.jsx';
+import { AppProvider } from './data/AppContext';
+
+const initialState = {
+  items: []
+};
 
 const App = () => {
+  const [state, appDispatch] = useReducer(AppReducer, initialState)
 
   const menuItems = [
     {   id: 1, 
@@ -36,9 +47,23 @@ const App = () => {
       path: "/lab3",
       urlPattern: "/lab3",
       element: <Lab3></Lab3>,
-  }
+    },
+    { id: 5, 
+      label: "Labolatorium 4",
+      path: "/lab4",
+      urlPattern: "/lab4",
+      element: <Lab4></Lab4>,
+    }
 ];
   return (
+    // <AppContext.Provider value={{ items: state.items, dispatch: appDispatch }}>
+    //   <div>
+    //       <h1>App</h1>
+    //       <CarProfile/>  {/* Komponent, który korzysta z kontekstu */}
+    //   </div>
+    // </AppContext.Provider>
+
+
     <>
       <RootLayout items={menuItems}>
           <Routes>
