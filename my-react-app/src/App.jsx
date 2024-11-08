@@ -4,13 +4,14 @@ import './App.css'
 //import CarProfile from './components/CarProfile.jsx'
 //import {data} from './data/module-data.js';
 import RootLayout from './layouts/RootLayout.jsx';
+import Home from './components/Home.jsx';
 import Lab1 from './components/Lab1.jsx';
 import Lab2 from './components/Lab2.jsx';
 import Lab3 from './components/Lab3.jsx';
 import Lab4 from './components/Lab4.jsx';
-import Home from './components/Home.jsx';
+import Lab4Add from './components/Lab4Add.jsx';
 import { Routes, Route } from 'react-router-dom';
-import AppContext from './data/AppContext.js';
+import AppContext from './data/AppContext';
 import AppReducer from "./data/AppReducer";
 import CarProfile from './components/CarProfile.jsx';
 import { AppProvider } from './data/AppContext';
@@ -53,25 +54,24 @@ const App = () => {
       path: "/lab4",
       urlPattern: "/lab4",
       element: <Lab4></Lab4>,
+    },
+    { id: 6, 
+      label: "Add new car",
+      path: "/lab4/add",
+      urlPattern: "/lab4/add",
+      element: <Lab4Add></Lab4Add>,
     }
 ];
-  return (
-    // <AppContext.Provider value={{ items: state.items, dispatch: appDispatch }}>
-    //   <div>
-    //       <h1>App</h1>
-    //       <CarProfile/>  {/* Komponent, który korzysta z kontekstu */}
-    //   </div>
-    // </AppContext.Provider>
-
-
-    <>
+  return (   
+    <AppProvider>
       <RootLayout items={menuItems}>
-          <Routes>
-            {menuItems.map(item => (<Route key={item.id} path={item.path} element={item.element}></Route>))};    
-            <Route path="/lab2" element={<div>Nie podano ID w adresie URL.</div>} />          
-          </Routes>
+        <Routes>
+        {menuItems.map(item => (<Route key={item.id} path={item.path} element={item.element}></Route>))};    
+            <Route path="/lab2" element={<div>Nie podano ID w adresie URL.</div>} />        
+             <Route path="/lab4/add" element={<Lab4Add />} />
+        </Routes>
       </RootLayout>
-    </>
+    </AppProvider>
   );
 }
 

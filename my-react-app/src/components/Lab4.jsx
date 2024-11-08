@@ -1,23 +1,22 @@
-import React, { useReducer } from 'react';
-import AppContext from '../data/AppContext';  // Importujemy nasz kontekst
-import AppReducer from '../data/AppReducer';  // Importujemy naszą funkcję redukującą
-import FlexContainer from '../components/FlexContainer';  // Importujemy komponent FlexContainer
-import {data} from '../data/module-data'
-
-const initialState = {
-    items: data
-};
+import React, { useContext } from 'react';
+import AppContext from '../data/AppContext';  
+import FlexContainer from '../components/FlexContainer';  
+import { useNavigate } from 'react-router-dom';
 
 function Lab4() {
-  const [state, appDispatch] = useReducer(AppReducer, initialState);
+  const { items } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  const handleAddClick = () => {
+    navigate('/lab4/add');  
+  };
 
   return (
-    <AppContext.Provider value={{ items: state.items, dispatch: appDispatch }}>
       <div>
         <h1>Car Profiles in Lab4</h1>
+        <button onClick={handleAddClick}>Add New Car</button>
         <FlexContainer />
       </div>
-    </AppContext.Provider>
   );
 }
 

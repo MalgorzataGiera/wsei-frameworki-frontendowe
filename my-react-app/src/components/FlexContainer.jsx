@@ -1,23 +1,15 @@
 
 import React, { useContext } from 'react';
-import AppContext from '../data/AppContext';  // Importujemy kontekst
-import CarProfile from './CarProfile';      // Importujemy komponent profilu
-
+import AppContext from '../data/AppContext';
+import CarProfile from './CarProfile';
 const FlexContainer = () => {
-  // Pobieramy stan (items) z kontekstu
-  const { items } = useContext(AppContext);
+  const context = useContext(AppContext);
+  const items = context.items;
 
   return (
     <div className="d-flex flex-wrap">
       {items.map(item => (
-        <CarProfile
-          key={item.id}
-          id={item.id}
-          brand={item.brand}
-          color={item.color}
-          maxSpeed={item.maxSpeed}
-          rating={item.rating}
-        />
+        <CarProfile key={item.id} id={item.id} />
       ))}
     </div>
   );

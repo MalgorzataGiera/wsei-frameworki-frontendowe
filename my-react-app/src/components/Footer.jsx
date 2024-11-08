@@ -1,4 +1,3 @@
-//import React from 'react';
 import wseiLogo from '../assets/WSEI-Krakow-logo.png'
 
 function Footer() {

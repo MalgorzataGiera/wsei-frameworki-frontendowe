@@ -2,25 +2,17 @@ import React, { useState, useContext} from 'react';
 import RatingBar from './RatingBar';
 import AppContext from '../data/AppContext'
 
-const CarProfile = ({ id, brand, color, maxSpeed, rating}) => {
-  const [currentRating, setCurrentRating] = useState(rating);
+const CarProfile = ({ id}) => {
+  const { items, dispatch } = useContext(AppContext);
+
+  const car = items.find(item => item.id === id);
+
+  const [currentRating, setCurrentRating] = useState(car ? Number(car.rating) : 0);
   const [firstClick, setFirstClick] = useState(true);
 
-  const { dispatch } = useContext(AppContext);
-
-  const handleEdit = () => {
-    if (onEdit) onEdit(id);
-  };
-
-  const handleDelete = () => {
-    if (onDelete) onDelete(id);
-  };
-
   const handleRate = () => {
-    if (firstClick) {
-
-        setCurrentRating(10);
-        setFirstClick(false);
+    if (firstClick && currentRating != 10) {
+        setCurrentRating(10);        
         dispatch({
             type: "rate",
             payload: { id, rating: 10 }
@@ -39,24 +31,25 @@ const CarProfile = ({ id, brand, color, maxSpeed, rating}) => {
                 payload: { id, rating: currentRating + 1 }
             });
         }
-    }}
+    }
+    setFirstClick(false);
+  }
 
     return (
+      car ? (
       <div className="card mb-3" style={{ width: '18rem' }}>
-          <p className="card-text">ID: {id}</p>
-          <p className="card-title">Brand: {brand}</p>
-          <p className="card-text">Color: {color}</p>
-          <p className="card-text">Max Speed: {maxSpeed}</p>
-          <p className="card-text">Rating: {rating}</p>
+          <p className="card-text">ID: {car.id}</p>
+          <p className="card-title">Brand: {car.brand}</p>
+          <p className="card-text">Color: {car.color}</p>
+          <p className="card-text">Max Speed: {car.maxSpeed}</p>
+          <p className="card-text">Rating: {car.rating}</p>
 
           <RatingBar rate={currentRating} />
 
         <div className="d-flex justify-content-between mt-3">
-          <button className="btn btn-primary" onClick={handleEdit}>Edit</button>
-          <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
           <button className="btn btn-secondary" onClick={handleRate}>Rate</button>
         </div>
-      </div>
+      </div> ) : (<p>Car not found</p>)
     );
   }; 
   
