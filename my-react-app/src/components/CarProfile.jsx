@@ -1,10 +1,13 @@
-import React, { useState, useContext} from 'react';
+import React, { useState} from 'react';
 import RatingBar from './RatingBar';
-import AppContext from '../data/AppContext'
 import { useNavigate } from 'react-router-dom';
+import useData from '../context/useData';
+import useDispatch from '../context/useDispatch';
 
 const CarProfile = ({ id}) => {
-  const { items, dispatch } = useContext(AppContext);
+  const items = useData();
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const car = items.find(item => item.id === id);

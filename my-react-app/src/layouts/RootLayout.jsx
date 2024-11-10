@@ -11,6 +11,7 @@ function RootLayout({ children }) {
     { id: 4, label: "Laboratorium 3", path: "/lab3"  },
     { id: 5, label: "Laboratorium 4", path: "/lab4"  },
     { id: 6, label: "Add new car", path: "/lab4/add"  },    
+    { id: 7, label: "Laboratorium 5", path: "/lab5"  },    
 ];
 
   return (

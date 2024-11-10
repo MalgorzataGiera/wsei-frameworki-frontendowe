@@ -8,8 +8,9 @@ import Lab3 from './components/Lab3.jsx';
 import Lab4 from './components/Lab4.jsx';
 import Lab4Add from './components/Lab4Add.jsx';
 import Lab4Edit from './components/Lab4Edit.jsx';
+import Lab5 from './components/Lab5';
 import { Routes, Route } from 'react-router-dom';
-import { AppProvider } from './data/AppContext';
+import AppProvider from './context/AppProvider.jsx';
 
 const App = () => {
 
@@ -50,6 +51,12 @@ const App = () => {
       path: "/lab4/add",
       urlPattern: "/lab4/add",
       element: <Lab4Add></Lab4Add>,
+    },
+    { id: 7, 
+      label: "Lab 5",
+      path: "/lab5", 
+      urlPattern: "/lab5",
+      element: <Lab5></Lab5> 
     },
 ];
   return (   

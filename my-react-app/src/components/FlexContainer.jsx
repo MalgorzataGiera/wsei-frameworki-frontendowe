@@ -1,12 +1,11 @@
 
-import React, { useContext } from 'react';
-import AppContext from '../data/AppContext';
+import React from 'react';
 import CarProfile from './CarProfile';
 import { useNavigate } from 'react-router-dom';
+import useData from '../context/useData';
 
 const FlexContainer = () => {
-  const context = useContext(AppContext);
-  const items = context.items;
+  const items = useData();
   const navigate = useNavigate();
 
   const handleEditClick = (id) => {
