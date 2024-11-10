@@ -1,18 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const TableHeader = ({ label, onSort }) => {
+    const [order, setOrder] = useState('asc');
+
+    const handleChange = (order) => {
+        setOrder(order);
+        onSort(order);
+    };
+
     return (
         <th>
-            <div className="dropdown">
-                <button className="btn btn-link dropdown-toggle" type="button" id={`${label}-dropdown`} data-bs-toggle="dropdown" aria-expanded="false">
+            <Dropdown>
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
                     {label}
-                </button>
-                <ul className="dropdown-menu" aria-labelledby={`${label}-dropdown`}>
-                    <li><button className="dropdown-item" onClick={() => onSort('asc')}>Ascending order</button></li>
-                    <li><button className="dropdown-item" onClick={() => onSort('desc')}>Descending order</button></li>
-                    <li><button className="dropdown-item" onClick={() => onSort('natural')}>Natural order</button></li>
-                </ul>
-            </div>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                    <Dropdown.Item onClick={() => handleChange('asc')}>Ascending order</Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleChange('desc')}>Descending order</Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleChange('natural')}>Natural Order</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
         </th>
     );
 };

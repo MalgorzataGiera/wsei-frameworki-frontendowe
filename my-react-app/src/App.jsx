@@ -1,14 +1,16 @@
 import React, { useReducer } from 'react';
 import './App.css'
 import RootLayout from './layouts/RootLayout.jsx';
-import Home from './components/Home.jsx';
-import Lab1 from './components/Lab1.jsx';
-import Lab2 from './components/Lab2.jsx';
-import Lab3 from './components/Lab3.jsx';
-import Lab4 from './components/Lab4.jsx';
-import Lab4Add from './components/Lab4Add.jsx';
-import Lab4Edit from './components/Lab4Edit.jsx';
-import Lab5 from './components/Lab5';
+import Home from './pages/Home.jsx';
+import Lab1 from './pages/Lab1.jsx';
+import Lab2 from './pages/Lab2.jsx';
+import Lab3 from './pages/Lab3.jsx';
+import Lab4 from './pages/Lab4.jsx';
+import Lab4Add from './pages/Lab4Add.jsx';
+import Lab4Edit from './pages/Lab4Edit.jsx';
+import Lab5 from './pages/Lab5.jsx';
+import UserDetails from './components/UserDetails';
+import PostDetails from './components/PostDetails.jsx';
 import { Routes, Route } from 'react-router-dom';
 import AppProvider from './context/AppProvider.jsx';
 
@@ -67,6 +69,8 @@ const App = () => {
             <Route path="/lab2" element={<div>Nie podano ID w adresie URL.</div>} />        
              <Route path="/lab4/add" element={<Lab4Add />} />
              <Route path="/lab4/edit/:id" element={<Lab4Edit />} />
+             <Route path="/lab5/users/:id" element={<UserDetails />} />
+             <Route path="/lab5/posts/:id/comments" element={<PostDetails />} />
         </Routes>
       </RootLayout>
     </AppProvider>

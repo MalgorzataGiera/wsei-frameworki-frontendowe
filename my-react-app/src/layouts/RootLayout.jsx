@@ -1,4 +1,3 @@
-// src/layouts/RootLayout.js
 import React from 'react';
 import NavBarMenu from '../components/NavBarMenu';
 import Footer from '../components/Footer';

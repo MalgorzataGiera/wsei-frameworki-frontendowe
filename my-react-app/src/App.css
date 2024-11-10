@@ -75,15 +75,36 @@ th, td {
   border: 1px solid #ddd;
 }
 
-.dropdown {
-  background-color: #106b13;
-  color: white;
+/* posts */
+.post-details-container {
+  text-align: left; 
 }
 
-.btn-link {
-  color: white !important;  
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
 }
 
-.btn-link:hover {
-  border: none;
+li {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.comment-email {
+  color: gray;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.comment-body {
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+}
+
+.comment-name {
+  font-weight: bold;
 }

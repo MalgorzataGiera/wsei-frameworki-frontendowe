@@ -2,8 +2,8 @@ import {data} from '../data/module-data.js';
 import CarProfile from '../components/CarProfile.jsx';
 import '../App.css'
 import React, { useReducer } from 'react';
-import AppReducer from '../data/AppReducer';
-import AppContext from '../data/AppContext';
+import AppReducer from '../data/AppReducer.js';
+import AppContext from '../data/AppContext.jsx';
 
 function Lab1() {
   const [items, dispatch] = useReducer(AppReducer, data); // useReducer
