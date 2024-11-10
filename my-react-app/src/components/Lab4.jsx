@@ -13,9 +13,7 @@ function Lab4() {
 
   return (
       <div>
-        <h1>Car Profiles in Lab4</h1>
-        <button onClick={handleAddClick}>Add New Car</button>
-        <FlexContainer />
+        <FlexContainer items={items}/>
       </div>
   );
 }

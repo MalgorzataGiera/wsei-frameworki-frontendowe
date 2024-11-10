@@ -1,37 +1,37 @@
 export const data = [
   {
     "id": 1,
-    "brand": "audi",
-    "color": "gray",
-    "maxSpeed": "250",
-    "rating": 1
+    "brand": "mazda",
+    "color": "black",
+    "maxSpeed": "240",
+    "rating": 3
   },
   {
     "id": 2,
     "brand": "audi",
     "color": "red",
-    "maxSpeed": "230",
-    "rating": 0
+    "maxSpeed": "250",
+    "rating": 2
   },
   {
     "id": 3,
-    "brand": "opel",
-    "color": "black",
-    "maxSpeed": "200",
-    "rating": 0
+    "brand": "mazda",
+    "color": "gray",
+    "maxSpeed": "240",
+    "rating": 5
   },
   {
     "id": 4,
-    "brand": "bwm",
+    "brand": "mazda",
     "color": "green",
-    "maxSpeed": "200",
+    "maxSpeed": "220",
     "rating": 5
   },
   {
     "id": 5,
-    "brand": "audi",
-    "color": "green",
-    "maxSpeed": "220",
-    "rating": 7
+    "brand": "honda",
+    "color": "black",
+    "maxSpeed": "250",
+    "rating": 4
   }
 ];

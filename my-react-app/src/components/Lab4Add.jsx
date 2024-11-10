@@ -12,56 +12,32 @@ const Lab4Add = () => {
   });
 
   const navigate = useNavigate();
-  const [errors, setErrors] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const validateForm = () => {
-    const newErrors = [];
-    if (!formData.brand) newErrors.push('Brand is required.');
-    if (!formData.color) newErrors.push('Color is required.');
-    if (!formData.maxSpeed || isNaN(formData.maxSpeed))
-      newErrors.push('Max speed must be a number.');
-    if (!formData.rating || isNaN(formData.rating))
-      newErrors.push('Rating must be a number.');
-
-    setErrors(newErrors);
-    return newErrors.length === 0;
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      dispatch({
-        type: 'add',
-        payload: formData,
-      });
-      navigate('/lab4');
+    dispatch({
+      type: 'add',
+      payload: formData,
+    });
+    navigate('/lab4');
 
-      // Czyszczenie formularza po wysłaniu
-      setFormData({
-        brand: '',
-        color: '',
-        maxSpeed: '',
-        rating: '',
-      });
-    }
+    // Czyszczenie formularza po wysłaniu
+    setFormData({
+      brand: '',
+      color: '',
+      maxSpeed: '',
+      rating: '',
+    });    
   };
 
   return (
     <div>
       <h2>Add New Car</h2>
-
-      {errors.length > 0 && (
-        <div className="text-danger">
-          {errors.map((error, index) => (
-            <p key={index}>{error}</p>
-          ))}
-        </div>
-      )}
 
       <form onSubmit={handleSubmit}>
         <div className="form-group">

@@ -2,14 +2,8 @@ import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
 import { data } from './module-data';
 
-// // Tworzymy kontekst z domyślnymi wartościami dla items i dispatch
-// const AppContext = createContext({
-//     items: [],  // Stan przechowujący kolekcję obiektów
-//     dispatch: () => {}
-// });
-// export const AppProvider = AppContext.Provider;
 const initialState = {
-    items: data, // Jeśli nie masz początkowych danych, ustaw pustą tablicę
+    items: data,
   };
   
   const AppContext = createContext(initialState);

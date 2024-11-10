@@ -41,18 +41,15 @@
   color: #888;
 }
 
-/* Zmiana koloru tła inputów na szary */
 .input-style {
-  background-color: #f0f0f0; /* Jasnoszary kolor tła */
-  color: #333; /* Kolor tekstu (ciemny) */
-  border: 1px solid #ccc; /* Szare obramowanie */
-  padding: 8px;
-  border-radius: 4px; /* Opcjonalnie zaokrąglone rogi */
-  width: 100%; /* Szerokość na 100% kontenera */
-  text-align: left; /* Wyrównanie tekstu do lewej */
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  text-align: left;
 }
 
-/* Możesz także dodać odstępy pomiędzy inputami */
 .form-group {
   margin-bottom: 1rem;
 }

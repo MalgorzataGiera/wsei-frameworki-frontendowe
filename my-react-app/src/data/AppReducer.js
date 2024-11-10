@@ -10,26 +10,20 @@ const AppReducer = (state, action) => {
               : item
           )
         };
-        case 'add':
-        // // Dodajemy nowy samochód
-        // const newCar = {
-        //   id: state.items.length + 1, // Automatycznie nadany id (można zmienić na bardziej zaawansowane)
-        //   ...action.payload,
-        // };
-  
-        // // Logowanie stanu po dodaniu nowego samochodu
-        // console.log('Nowy stan po dodaniu samochodu:', newState);
-
-        // return {
-        //   ...state,
-        //   items: [...state.items, newCar],        
-        // };
+      case 'add':
         return {
           ...state,
           items: [
             ...state.items,
-            { ...action.payload, id: Date.now() } // Dodajemy nowy samochód z unikalnym ID
+            { ...action.payload, id: Date.now() } // unique id
           ],
+        };
+      case 'edit':
+        return {
+          ...state,
+          items: state.items.map((car) => 
+            car.id === action.payload.id ? { ...car, ...action.payload } : car
+          )
         };
       default:
         return state;

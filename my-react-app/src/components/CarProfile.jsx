@@ -1,9 +1,11 @@
 import React, { useState, useContext} from 'react';
 import RatingBar from './RatingBar';
 import AppContext from '../data/AppContext'
+import { useNavigate } from 'react-router-dom';
 
 const CarProfile = ({ id}) => {
   const { items, dispatch } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const car = items.find(item => item.id === id);
 
@@ -35,6 +37,10 @@ const CarProfile = ({ id}) => {
     setFirstClick(false);
   }
 
+  const handleEdit = () => {
+    navigate(`/lab4/edit/${id}`);
+  };
+
     return (
       car ? (
       <div className="card mb-3" style={{ width: '18rem' }}>
@@ -48,6 +54,9 @@ const CarProfile = ({ id}) => {
 
         <div className="d-flex justify-content-between mt-3">
           <button className="btn btn-secondary" onClick={handleRate}>Rate</button>
+          <button className="btn btn-primary" onClick={handleEdit}>
+          Edit
+        </button>
         </div>
       </div> ) : (<p>Car not found</p>)
     );
